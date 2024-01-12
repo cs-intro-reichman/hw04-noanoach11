@@ -22,7 +22,7 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        System.out.println(camelCase("   Intro to  coMPUter   sCIEncE   "));    
+           System.out.println(camelCase("   Intro to  coMPUter   sCIEncE   "));
     }
 
     public static String capVowelsLowRest (String string) {
@@ -85,6 +85,9 @@ public class StringOps {
         if (ans.charAt(0)>65 && ans.charAt(0)<90){
             finalAns += (char) (ans.charAt(0)+32);
         }
+        else{finalAns += (char) (ans.charAt(0));
+        }
+    
         for (int i=1;i<ans.length();i++){
             finalAns+=ans.charAt(i);
         }    
