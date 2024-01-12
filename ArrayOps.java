@@ -1,7 +1,7 @@
 public class ArrayOps {
     public static void main(String[] args) {
-        int [] arr = new int[] {2,8,3,7,8,8,8};
-    System.out.println(secondMaxValue(arr));
+        int [] arr = new int[] {3,2,1};
+    System.out.println(isSorted(arr));
       
     }
     
@@ -112,20 +112,19 @@ public class ArrayOps {
                 for (int i=0;i<array.length-1;i++){
                     if (array[i]<array[i+1]){
                         return false;
-                    }else{
-                        return true;
                     }
                 }
+                return true;
             }
+            
 
             if (maxValue(array) == array[(array.length-1)]){
                 for (int i=(array.length-1);i>0;i--){
                     if (array[i]<array[i-1]){
                         return false;
-                    }else{
-                        return true;
-                    }
+                    }    
                 }
+                return true;
             }
         }
         return false;
