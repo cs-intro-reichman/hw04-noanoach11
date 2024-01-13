@@ -22,21 +22,110 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        
+
+           println(allIndexOf("MMMM", 'M'));
     }
 
     public static String capVowelsLowRest (String string) {
-        // Write your code here:
-        return "";
+        String ans= "";
+
+        for(int i=0;i<string.length();i++){
+            char c = string.charAt(i);
+
+            if ((c== 97)|| (c== 101)|| (c== 111)|| (c== 117)|| (c== 105)){
+                ans += (char) (c-32);
+            }
+
+            else if (c>64 && c<91 && !((c==65)|| (c==69)|| (c==73)|| (c==79)|| (c==85)|| (c==32))){
+                ans += (char) (c+32);
+            }
+
+            else{
+                ans += c;
+            }
+        }
+        return ans;
     }
+
+    //switching the first letter of the word into an Uppercase.
+    // doesnt touch the other letters
+    public static String firstLetter (String string){
+       String ans = "";
+       for (int i=0;i<string.length();i++){
+            if (string.charAt(i)==' '&& (i<string.length()-1)){
+                if (string.charAt(i+1)>97 && string.charAt(i+1)<122){
+                    ans += (char) (string.charAt(i+1)-32);
+                    i++;
+                }  
+            }
+            else{ 
+                ans += string.charAt(i);
+            } 
+        }   
+       return ans;
+    }
+
 
     public static String camelCase (String string) {
-        // Write your code here:
-        return "";
+        String ans = "";
+        //swithching all of the letters into Lowercase
+        for (int i=0;i<string.length();i++){
+            if (string.charAt(i)>65 && string.charAt(i)<90){
+                ans+= (char) (string.charAt(i)+32);
+            }
+            else{
+               ans += string.charAt(i); 
+            }
+        }
+
+        //changing thefirst letters of every worrd into Uppercase
+        ans = firstLetter(ans);
+        
+        //lowercase the first letter of the first word only.
+        String finalAns = "";
+        if (ans.charAt(0)>65 && ans.charAt(0)<90){
+            finalAns += (char) (ans.charAt(0)+32);
+        }
+        else{finalAns += (char) (ans.charAt(0));
+        }
+    
+        for (int i=1;i<ans.length();i++){
+            finalAns+=ans.charAt(i);
+        }    
+        return finalAns;
     }
 
+
+    public static void println (int[] array){
+        if (array.length==1){
+            System.err.println("{" + array[0] + "}");
+
+        }else{
+            System.out.print("{" + array[0] + ",");
+            for(int i=1; i<array.length-1;i++){
+                System.out.print( " " + array[i] + ",");
+            }
+            System.out.print( " " + array[array.length-1]+ "}");
+        }
+    }
+
+        
+    
+
     public static int[] allIndexOf (String string, char chr) {
-        // Write your code here:
-        return new int[1];
+        int counter=0;
+        int num = 0;
+        for(int i=0;i<string.length();i++){
+            if (string.charAt(i)==chr){
+                counter++;
+            }
+        }
+        int[] ans = new int [counter];
+        for(int i=0;i<string.length();i++){
+            if (string.charAt(i)==chr){
+                ans[num++] += i;
+            }
+        }
+        return ans;
     }
 }
